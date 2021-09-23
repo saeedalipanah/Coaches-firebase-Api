@@ -34,6 +34,7 @@ li {
   padding: 10px;
   border: 1px solid black;
   border-radius: 20px;
+  box-shadow: 4px 6px 20px #3d008d;
 }
 div{
   margin: 15px;
