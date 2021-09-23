@@ -10,6 +10,6 @@ div{
     box-shadow:8px 5px 20px black;
     padding: 10px;
     margin: 30px auto;
-    max-width: 80%;
+    max-width: 60%;
 }
 </style>

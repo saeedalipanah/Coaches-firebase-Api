@@ -3,14 +3,14 @@
   <section>
     Filter
   </section>
-  <section>
-    <div>
-      <button>Refresh</button>
-      <router-link to="/register">Register As Coach</router-link>
-    </div>
-    <h2 v-if="noCoaches">No Coaches Yet...</h2>
-    <base-card v-else>
-      <ul >
+  <base-card>
+    <section>
+      <div>
+        <button>Refresh</button>
+        <router-link to="/register">Register As Coach</router-link>
+      </div>
+      <h2 v-if="noCoaches">No Coaches Yet...</h2>
+      <ul v-else>
         <!-- میتوانیم اطلاعت دریافتی از استور را از طریق پراپس به کامپوننتی که قرار است آنها را نمایش دهد بفرستیم -->
         <coach-items
           v-for="coach in coaches"
@@ -25,16 +25,15 @@
         <!-- میتواند مستقیم از استور اطلاعات را دریافت کند -->
         <!-- <coach-items></coach-items> -->
       </ul>
-    </base-card>
-  </section>
+    </section>
+  </base-card>
 </template>
 
 <script>
 import CoachItems from '../../components/coaches/CoachItems.vue';
-import BaseCard from '../../components/ui/BaseCard.vue';
 import { mapGetters } from 'vuex';
 export default {
-  components: { CoachItems, BaseCard },
+  components: { CoachItems },
   data() {
     return {};
   },
@@ -61,9 +60,10 @@ ul {
 
 a {
   padding: 15px;
+  border-radius: 30px;
   text-decoration: none;
   margin: 0px 100px;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
 }
 a:active,
 a:hover,
@@ -75,7 +75,7 @@ a.router-link-active {
 
 button {
   padding: 11px;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 20px;
   background-color: cornflowerblue;
   color: bisque;

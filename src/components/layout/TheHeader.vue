@@ -25,6 +25,8 @@ header a {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border: 1px solid transparent;
+  text-shadow: 5px 5px 4px black;
+
   /* background-color: lawngreen; */
 }
 

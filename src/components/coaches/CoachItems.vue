@@ -3,15 +3,16 @@
     <!-- میتوان اطلاعات دریافتی از طریق پراپس را نمایش داد -->
     <h3>Coach Name : {{ firstName }} {{ lastName }}</h3>
     <h3>Hourly Rate : {{ hourlyRate }} hours</h3>
+    <section>
+      <h3 class="area">Areas:</h3>
+      <h4>
+        <span v-for="area in areas" :key="area">{{ area }} ,</span>
+      </h4>
+    </section>
+
     <div>
-      Areas:
-      <span v-for="area in areas" :key="area">
-        {{ area }},
-      </span>
-    </div>
-    <div>
-      <router-link to="/coaches/:id">Details</router-link >
-      <router-link to="/coaches/:id/contact">Contact</router-link >
+      <router-link :to="'/coaches/' + id">Details</router-link>
+      <router-link :to="coachContactLink">Contact</router-link>
     </div>
 
     <!-- میتوان مستقیم از استور اطلاعات را دریافت کرد و نمایش داد
@@ -22,10 +23,16 @@
 <script>
 // import { mapGetters } from 'vuex';
 export default {
-  props: ['id', 'firstName', 'lastName', 'description', 'areas', 'hourlyRate']
-  // computed: {
-  //   ...mapGetters(['coaches'])
-  // }
+  props: ['id', 'firstName', 'lastName', 'description', 'areas', 'hourlyRate'],
+  computed: {
+    // ...mapGetters(['coaches'])
+    // coachDetailsLink(){
+    //   return '/coaches/' + this.id
+    // }
+    coachContactLink() {
+      return '/coaches/' + this.id + '/contact';
+    }
+  }
 };
 </script>
 <style scoped>
@@ -36,20 +43,28 @@ li {
   border-radius: 20px;
   box-shadow: 4px 6px 20px #3d008d;
 }
-div{
+div {
   margin: 15px;
 }
 a {
-  padding: 5px;
+  border-radius: 30px;
+  padding: 5px 10px;
   text-decoration: none;
   margin: 10px;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
+  background-color: #e69a9a;
 }
 a:active,
 a:hover,
 a.router-link-active {
-  background-color: white;
+  background-color: #68c775;
   color: #920000;
   font-size: 1.05rem;
+}
+.area {
+  display: inline;
+}
+h4 {
+  display: inline;
 }
 </style>
