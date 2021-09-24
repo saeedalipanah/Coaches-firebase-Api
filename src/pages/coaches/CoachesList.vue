@@ -7,7 +7,7 @@
     <section>
       <div>
         <button>Refresh</button>
-        <router-link to="/register">Register As Coach</router-link>
+        <router-link class="reg" to="/register">Register As Coach</router-link>
       </div>
       <h2 v-if="noCoaches">No Coaches Yet...</h2>
       <ul v-else>
@@ -65,10 +65,17 @@ a {
   margin: 0px 100px;
   border: 2px solid #000000;
 }
+.reg{
+  padding: 10px;
+  color: #23f13f;
+  background-color: rgb(22, 7, 110);
+  border-radius: 30px;
+  text-shadow: 5px 5px 4px black;
+}
 a:active,
 a:hover,
 a.router-link-active {
-  background-color: white;
+  background-color: rgb(122, 238, 157);
   color: #920000;
   font-size: 1.05rem;
 }
