@@ -24,8 +24,25 @@ export default {
       ]
     };
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    registerCoach(state,payload){
+      state.coaches.push(payload)
+    }
+  },
+  actions: {
+    registerCoach(contex,payload){
+      const inputData ={
+        id:contex.rootGetters.userId,
+        firstName : payload.first,
+        lastName : payload.last,
+        areas : payload.areas,
+        description : payload.desc,
+        hourlyRate : payload.rate,
+      }
+      contex.commit('registerCoach', inputData)
+      
+    }
+  },
   getters: {
     coaches(state) {
       return state.coaches;
@@ -35,5 +52,10 @@ export default {
             return true
         }
     },
+    isCoach(_,getters,_2,rootGetters){
+      const coaches = getters.coaches;
+      const userId = rootGetters.userId;
+      return coaches.some(coach => coach.id === userId)
+    }
   }
 };

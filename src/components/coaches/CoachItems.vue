@@ -47,18 +47,19 @@ div {
   margin: 15px;
 }
 a {
+  color: white;
   border-radius: 30px;
   padding: 5px 10px;
   text-decoration: none;
   margin: 10px;
   border: 2px solid #000000;
-  background-color: #e69a9a;
+  background-color: #3d008d;
 }
 a:active,
 a:hover,
 a.router-link-active {
-  background-color: #68c775;
-  color: #920000;
+  background-color: #0076bb;
+  color: white;
   font-size: 1.05rem;
 }
 .area {

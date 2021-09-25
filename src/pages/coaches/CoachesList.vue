@@ -1,13 +1,15 @@
 <template>
+<base-card>
   <h1>coach list</h1>
   <section>
     Filter
   </section>
+</base-card>
   <base-card>
     <section>
       <div>
         <button>Refresh</button>
-        <router-link class="reg" to="/register">Register As Coach</router-link>
+        <router-link class="reg" to="/register" v-if="!isCoach">Register As Coach</router-link>
       </div>
       <h2 v-if="noCoaches">No Coaches Yet...</h2>
       <ul v-else>
@@ -38,7 +40,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(['coaches', 'noCoaches'])
+    ...mapGetters(['coaches', 'noCoaches' ,'isCoach'])
     // filteredCoaches(){
     //   return this.$store.getters['coaches/coaches']
     // },
@@ -67,16 +69,16 @@ a {
 }
 .reg{
   padding: 10px;
-  color: #23f13f;
-  background-color: rgb(22, 7, 110);
+  color: white;
+  background-color: #3d008d;
   border-radius: 30px;
-  text-shadow: 5px 5px 4px black;
+  box-shadow: 6px 4px px black;
 }
 a:active,
 a:hover,
 a.router-link-active {
-  background-color: rgb(122, 238, 157);
-  color: #920000;
+  background-color: #0076bb;
+  color: white;
   font-size: 1.05rem;
 }
 

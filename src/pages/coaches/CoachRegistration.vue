@@ -153,6 +153,7 @@ export default {
         this.areas.isValid = false;
         this.formIsValid = false;
       }
+      
     },
 
     submitForm() {
@@ -168,18 +169,9 @@ export default {
         desc: this.description.value,
         areas: this.areas.value
       };
-      console.log(inputData);
-
-      // console.log('firstname: ' );
-      // this.firstName = '';
-      // console.log('lastname: ' + this.lastName);
-      // this.lastName = '';
-      // console.log('rate:' + this.rate);
-      // this.rate = null;
-      // console.log('desc:' + this.description);
-      // this.description = '';
-      // console.log(this.areas);
-      // this.areas = [];
+      //input data will be payload
+      this.$store.dispatch('registerCoach', inputData); //در استور یک اکشن داریم با نام ریجستر کوچ که  با این دستور دیتای دریافتی کاربر را در آن میریزیم یعنی در واقع در استور ذخیره می کنیم
+      this.$router.replace('/coaches')//replace is work just like push just user cant back to page with back button in browser
     }
   }
 };

@@ -1,6 +1,7 @@
 <template>
   <the-header></the-header>
-  <router-view></router-view>
+
+  <router-view> </router-view>
 </template>
 <script>
 import TheHeader from './components/layout/TheHeader.vue';
@@ -24,23 +25,32 @@ body {
   /* background-color: darkred; */
 }
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
 
-/* .fade-route-enter-from {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
-.fade-route-enter-active {
+
+/* .fade-router-enter-from {
+  opacity: 0;
+}
+.fade-router-enter-active {
   transition: opacity 0.5s ease-out;
 }
-.fade-route-enter-to {
+.fade-router-enter-to {
   opacity: 1;
 }
-.fade-route-leave-from {
+.fade-router-leave-from {
   opacity: 1;
 }
-.fade-route-leave-active {
+.fade-router-leave-active {
   transition: opacity 0.5s ease-in;
 }
-.fade-route-leave-to {
+.fade-router-leave-to {
   opacity: 0;
 } */
 </style>
