@@ -8,6 +8,7 @@
       </ul>
     </nav>
   </header>
+  <div class="linear"></div>
 </template>
 <style scoped>
 header {
@@ -17,6 +18,13 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* border-bottom: 2px solid black; */
+}
+.linear{
+  width:100%;
+  height: 5px;
+  margin: auto;
+  background: linear-gradient(to right,#3d008d,black,#ddb1ee);
 }
 
 header a {

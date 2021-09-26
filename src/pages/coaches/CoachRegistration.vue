@@ -199,6 +199,7 @@ div {
 .invalid p {
   /* color: red; */
   margin: 0px 10px;
+  font-size: 0.85rem;
 }
 .desc.invalid textarea {
   border-color: red;

@@ -11,5 +11,8 @@ div{
     padding: 10px;
     margin: 30px auto;
     max-width: 60%;
+    /* background : linear-gradient(ro right, red,white) */
+background:linear-gradient(to right,white , #3d008d);
+
 }
 </style>

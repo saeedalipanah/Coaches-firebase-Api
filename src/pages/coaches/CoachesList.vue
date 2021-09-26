@@ -51,6 +51,7 @@ export default {
 };
 </script>
 <style scoped>
+
 div {
   padding: 20px;
   /* background-color: cornflowerblue; */

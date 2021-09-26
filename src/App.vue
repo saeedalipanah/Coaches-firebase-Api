@@ -12,12 +12,20 @@ export default {
 };
 </script>
 
-<style>
+<style >
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap');
 
 html {
   font-family: 'Nunito', sans-serif;
-  /* background-color: darkcyan; */
+background:linear-gradient(to right bottom,#3d008d,white);
+
+
+  
+/* background: linear-gradient(#e66465, #9198e5); */
+/* background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%); */
+
 }
 
 body {
