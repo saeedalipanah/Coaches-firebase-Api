@@ -1,5 +1,7 @@
 <template>
+<base-card>
   <h1>Register as a coach</h1>
+</base-card>
   <base-card>
     <form @submit.prevent="submitForm">
       <div :class="{ invalid: firstName.isValid === false }">
@@ -220,10 +222,15 @@ input[type='number'] {
   display: block;
 }
 textarea {
-  width: 90%;
+  /* width: 90%; */
   margin: 5px 10px;
   border-radius: 2px;
   display: block;
+  max-width: 90%;
+  min-width: 90%;
+  height: 100px;
+  min-height: 60px;
+  max-height: 200px;
 }
 
 input[type='checkbox'] {

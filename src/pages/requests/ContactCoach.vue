@@ -66,8 +66,12 @@ export default {
       if (this.formIsValid === false) {
         return;
       }
-      console.log('email:' + this.email.value);
-      console.log('massage:' + this.massage.value);
+      this.$store.dispatch('addRequests',{
+        coachId:this.$route.params.id,
+        email:this.email.value,
+        massage:this.massage.value 
+      });
+      this.$router.replace('/requests')
     }
   }
 };
@@ -89,7 +93,8 @@ textarea {
   width: 90%;
   margin: 5px 10px;
   border-radius: 2px;
-  display: block;
+  /* display: block; */
+  /* max-width: ; */
 }
 button {
   font-family: inherit;

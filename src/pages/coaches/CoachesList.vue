@@ -1,15 +1,14 @@
 <template>
-<base-card>
-  <h1>coach list</h1>
-  <section>
-    Filter
-  </section>
-</base-card>
+  <base-card class="coach-list">
+    <h1>coach list</h1>
+    <router-link class="reg" to="/register" v-if="!isCoach"
+      >Register As Coach</router-link
+    >
+  </base-card>
   <base-card>
     <section>
       <div>
         <button>Refresh</button>
-        <router-link class="reg" to="/register" v-if="!isCoach">Register As Coach</router-link>
       </div>
       <h2 v-if="noCoaches">No Coaches Yet...</h2>
       <ul v-else>
@@ -40,7 +39,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(['coaches', 'noCoaches' ,'isCoach'])
+    ...mapGetters(['coaches', 'noCoaches', 'isCoach'])
     // filteredCoaches(){
     //   return this.$store.getters['coaches/coaches']
     // },
@@ -51,7 +50,6 @@ export default {
 };
 </script>
 <style scoped>
-
 div {
   padding: 20px;
   /* background-color: cornflowerblue; */
@@ -60,16 +58,22 @@ div {
 ul {
   list-style: none;
 }
-
+.coach-list{
+  display: flex;
+  justify-content: space-between;
+}
 a {
-  padding: 15px;
+  
+  
   border-radius: 30px;
   text-decoration: none;
-  margin: 0px 100px;
-  border: 2px solid #000000;
+  /* margin: 0px 100px; */
+  border: 1px solid #000000;
 }
-.reg{
-  padding: 10px;
+.reg {
+  height: max-content;
+  padding: 7px;
+  margin: auto 0;
   color: white;
   background-color: #3d008d;
   border-radius: 30px;

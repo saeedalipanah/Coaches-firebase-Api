@@ -6,6 +6,8 @@
 
 <style scoped>
 div{
+    /* display: flex; */
+    /* justify-content: end; */
     border-radius: 25px;
     box-shadow:8px 5px 20px black;
     padding: 10px;

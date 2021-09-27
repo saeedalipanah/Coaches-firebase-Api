@@ -18,7 +18,7 @@ export default {
 html {
   font-family: 'Nunito', sans-serif;
 background:linear-gradient(to right bottom,#3d008d,white);
-
+min-height: 100vh;
 
   
 /* background: linear-gradient(#e66465, #9198e5); */
