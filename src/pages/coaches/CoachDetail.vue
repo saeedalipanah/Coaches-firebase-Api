@@ -1,4 +1,6 @@
 <template>
+<div>
+
   <base-card>
     <section>
       <h2>{{ selectedCoach.firstName }} {{ selectedCoach.lastName }}</h2>
@@ -8,8 +10,8 @@
       <h4>
         <span v-for="area in selectedCoach.areas" :key="area"> {{ area }} ,</span>
       </h4>
-    </section>
-      <p>{{ selectedCoach.description }}</p>
+    </section >
+      <p >description: {{ selectedCoach.description }}</p>
     </section>
     <base-card>
     <section>
@@ -19,6 +21,7 @@
     </section>
     </base-card>
   </base-card>
+</div>
 </template>
 
 //
@@ -44,6 +47,7 @@ export default {
 </script>
 
 <style scoped>
+
 a {
   padding: 15px;
   text-decoration: none;
@@ -65,6 +69,10 @@ h1 {
 .area {
   display: inline;
 }
+p{
+  max-width: 100%;
+  
+}
 h4 {
   display: inline;
   
@@ -77,4 +85,5 @@ h4 {
   text-shadow: 5px 5px 4px black;
 
 }
+
 </style>

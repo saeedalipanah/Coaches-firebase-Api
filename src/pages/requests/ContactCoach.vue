@@ -1,4 +1,6 @@
 <template>
+<div>
+
   <base-card>
     <form @submit.prevent="submitForm">
       <div :class="{ invalid: email.isValid === false }">
@@ -29,6 +31,7 @@
       </div>
     </form>
   </base-card>
+</div>
 </template>
 
 <script>
@@ -71,7 +74,7 @@ export default {
         email:this.email.value,
         massage:this.massage.value 
       });
-      this.$router.replace('/requests')
+      this.$router.replace('/coaches')
     }
   }
 };

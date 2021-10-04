@@ -1,4 +1,6 @@
 <template>
+<div>
+
 <base-card>
   <h1>Register as a coach</h1>
 </base-card>
@@ -100,6 +102,7 @@
       </div>
     </form>
   </base-card>
+</div>
 </template>
 
 <script>

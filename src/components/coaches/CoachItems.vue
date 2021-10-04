@@ -8,6 +8,7 @@
       <h4>
         <span v-for="area in areas" :key="area">{{ area }} ,</span>
       </h4>
+    <!-- <p>ID : {{id}}</p> -->
     </section>
 
     <div>
@@ -68,4 +69,5 @@ a.router-link-active {
 h4 {
   display: inline;
 }
+
 </style>

@@ -4,12 +4,31 @@
       <h1><router-link to="/">Find a Coach</router-link></h1>
       <ul>
         <li><router-link to="/coaches">All Coaches</router-link></li>
-        <li><router-link to="/requests">Requests</router-link></li>
+        <li v-if="!isLoggedin"><router-link to="/login">Login</router-link></li>
+        <li v-else><router-link to="/requests">Requests</router-link></li>
+        <li v-if="isLoggedin" @click="logout"><button>Logout</button></li>
       </ul>
     </nav>
   </header>
   <div class="linear"></div>
 </template>
+<script>
+import { mapGetters,  } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters(['isLoggedin'])
+  },
+  methods: {
+    // ...mapActions(['logout']),
+    logout() {
+      this.$store.dispatch('logout')
+      this.$router.replace('/coaches');
+    }
+  }
+};
+</script>
+
 <style scoped>
 header {
   width: 100%;
@@ -20,11 +39,11 @@ header {
   align-items: center;
   /* border-bottom: 2px solid black; */
 }
-.linear{
-  width:100%;
+.linear {
+  width: 100%;
   height: 5px;
   margin: auto;
-  background: linear-gradient(to right,#3d008d,black,#ddb1ee);
+  background: linear-gradient(to right, #3d008d, black, #ddb1ee);
 }
 
 header a {
@@ -76,10 +95,17 @@ header ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 li {
   margin: 0 0.5rem;
+}
+button {
+  color: rgb(0, 0, 0);
+  font-family: 'Nunito', sans-serif;
+}
+button:hover,
+button:active {
+  font-size: 1rem;
 }
 </style>

@@ -1,11 +1,15 @@
 <template>
+<div>
+
   <base-card>
     <header>
       Requests Received
     </header>
   </base-card>
   <base-card>
-    <div>
+    <base-spinner v-if="isLoading"></base-spinner>
+    <div v-else-if="!isLoading&&noRequests"><h1>You haven't received any requests yet!</h1></div>
+    <div v-else-if="!isLoading && !noRequests">
       <ul>
         <li v-for="request in requests" :key="request.id">
           <base-card>
@@ -16,23 +20,43 @@
         </li>
       </ul>
     </div>
-    <div v-if="noRequests"><h1>You haven't received any requests yet!</h1></div>
   </base-card>
+</div>
+  
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 export default {
-  data() {
-    return {};
+  created(){
+    this.loadRequests()
   },
-  computed: {
+  
+  data() {
+    return {
+      isLoading:false,
+      error : null
+    };
+  },
+computed: {
     ...mapGetters(['requests', 'noRequests'])
+  },
+  methods:{
+    async loadRequests() {
+      this.isLoading = true;
+      try {
+        await this.$store.dispatch('loadRequests');
+      } catch (error) {
+        this.error = error.message || 'Something failed!';
+      }
+      this.isLoading = false;
+    },
   }
 };
 </script>
 
 <style scoped>
+
 header {
   /* background: red; */
   font-size: x-large;
@@ -43,4 +67,5 @@ header {
 ul{
 list-style: none;
 }
+
 </style>

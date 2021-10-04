@@ -1,17 +1,22 @@
 <template>
-  <base-card class="coach-list">
-    <h1>coach list</h1>
-    <router-link class="reg" to="/register" v-if="!isCoach"
-      >Register As Coach</router-link
-    >
-  </base-card>
-  <base-card>
-    <section>
+  <div>
+    <base-card class="coach-list">
+      <h1>coach list</h1>
+      <router-link class="reg" to="/login" v-if="!isLoggedin">Log in </router-link>
+      <router-link class="reg" to="/register" v-if="!isCoach && !isLoading && isLoggedin"
+        >Register As Coach</router-link
+      >
+    </base-card>
+
+    <base-card>
       <div>
-        <button>Refresh</button>
+        <button @click="loadCoaches()">Refresh</button>
       </div>
-      <h2 v-if="noCoaches">No Coaches Yet...</h2>
-      <ul v-else>
+
+      <div v-if="isLoading">
+        <base-spinner></base-spinner>
+      </div>
+      <ul v-else-if="hasCoaches">
         <!-- میتوانیم اطلاعت دریافتی از استور را از طریق پراپس به کامپوننتی که قرار است آنها را نمایش دهد بفرستیم -->
         <coach-items
           v-for="coach in coaches"
@@ -26,26 +31,44 @@
         <!-- میتواند مستقیم از استور اطلاعات را دریافت کند -->
         <!-- <coach-items></coach-items> -->
       </ul>
-    </section>
-  </base-card>
+
+      <h3 v-else style="text-align: center;">
+        No Coaches Yet...
+      </h3>
+    </base-card>
+  </div>
 </template>
 
 <script>
 import CoachItems from '../../components/coaches/CoachItems.vue';
 import { mapGetters } from 'vuex';
 export default {
+  created() {
+    this.loadCoaches();
+  },
   components: { CoachItems },
   data() {
-    return {};
+    return {
+      isLoading: false,
+      error: null
+    };
   },
   computed: {
-    ...mapGetters(['coaches', 'noCoaches', 'isCoach'])
+    ...mapGetters(['coaches', 'hasCoaches', 'isCoach','isLoggedin'])
     // filteredCoaches(){
     //   return this.$store.getters['coaches/coaches']
     // },
-    // noCoaches(){
-    //   return this.$store.getters['coaches/noCoaches']
+    // hasCoaches(){
+    //   return  this.$store.getters['hasCoaches']
     // }
+  },
+  methods: {
+    async loadCoaches() {
+      this.isLoading = true;
+      await this.$store.dispatch('loadCoaches');
+      this.isLoading = false;
+    }
+    // ...mapActions(['loadCoaches'])
   }
 };
 </script>
@@ -58,13 +81,11 @@ div {
 ul {
   list-style: none;
 }
-.coach-list{
+.coach-list {
   display: flex;
   justify-content: space-between;
 }
 a {
-  
-  
   border-radius: 30px;
   text-decoration: none;
   /* margin: 0px 100px; */
@@ -89,10 +110,9 @@ a.router-link-active {
 
 button {
   padding: 11px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 20px;
-  background-color: cornflowerblue;
-  color: bisque;
+  color: rgb(0, 0, 0);
   font-family: inherit;
   cursor: pointer;
 }
