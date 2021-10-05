@@ -50,6 +50,11 @@ export default {
       console.log(responseData);
       //6-now we want to save information recieved from server to vuex mutations
       //we connect this action to login mutation and send a object as a payload
+
+      localStorage.setItem('userId', responseData.localId)
+      localStorage.setItem('token', responseData.idToken)
+
+
       context.commit('setUser', {
         userId: responseData.localId,
         //new userId : userId that excist in response of server
@@ -59,6 +64,16 @@ export default {
         //new tokenExpration : tokenExpration that excist in response of server
       });
     }, //end of login
+    autoLogin(context){
+      if( localStorage.getItem('token') && localStorage.getItem('userId')){ //if token and userId exist in local storge then:
+        context.commit('setUser',{
+          userId:localStorage.getItem('userId'),
+          token:localStorage.getItem('token'),
+          tokenExpration:null
+        })
+      }//end of if
+     
+    },
     logout(context){
       context.commit('setUser',{
         userId:null,
