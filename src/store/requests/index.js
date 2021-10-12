@@ -18,7 +18,7 @@ export default {
     async addRequests(contex, payload) {
       const newRequest = {
         // id: '',
-        // coachId: payload.coachId,
+        coachId: payload.coachId,
         email: payload.email,
         massage: payload.massage
       };

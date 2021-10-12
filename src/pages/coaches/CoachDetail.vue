@@ -4,7 +4,7 @@
   <base-card>
     <section>
       <h2>{{ selectedCoach.firstName }} {{ selectedCoach.lastName }}</h2>
-      <h2>Hourly Rate : {{ selectedCoach.hourlyRate }}</h2>
+      <h2>Hourly Rate : {{ selectedCoach.hourlyRate }} تومان</h2>
     <section>
       <h3 class="area">Areas: </h3>
       <h4>

@@ -96,6 +96,7 @@ export default {
         this.error = err.message || 'failed to authenticate,try again later';
       }
       this.isLoading = false;
+      this.$router.replace('/login')
     }
   }
 };
@@ -113,7 +114,6 @@ input {
   width: 90%;
   height: 22px;
   margin: 5px 10px;
-
   display: block;
 }
 

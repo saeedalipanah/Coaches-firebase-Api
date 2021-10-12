@@ -4,8 +4,9 @@
       <h1><router-link to="/">Find a Coach</router-link></h1>
       <ul>
         <li><router-link to="/coaches">All Coaches</router-link></li>
+        <li v-if="!isLoggedin"><router-link to="/signup">Signup</router-link></li>
         <li v-if="!isLoggedin"><router-link to="/login">Login</router-link></li>
-        <li v-else><router-link to="/requests">Requests</router-link></li>
+        <li v-if="isLoggedin"><router-link to="/requests">Requests</router-link></li>
         <li v-if="isLoggedin" @click="logout"><button>Logout</button></li>
       </ul>
     </nav>

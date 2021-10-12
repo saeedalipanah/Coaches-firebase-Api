@@ -1,9 +1,9 @@
 <template>
 <div>
 
-<base-card>
+
   <h1>Register as a coach</h1>
-</base-card>
+   <section class="linear"></section>
   <base-card>
     <form @submit.prevent="submitForm">
       <div :class="{ invalid: firstName.isValid === false }">
@@ -31,7 +31,7 @@
       </div>
 
       <div :class="{ invalid: !rate.isValid }">
-        <label for="rate">Hourly Rate</label>
+        <label for="rate">Hourly Rate(تومان)</label>
         <input
           id="rate"
           name="rate"
@@ -190,7 +190,15 @@ form {
 div {
   margin: 15px 0px;
 }
-
+.linear {
+  width: 100%;
+  height: 5px;
+  margin: auto;
+  background: linear-gradient(to right, #442477, black, #ddb1ee);
+}
+h1{
+  text-align: center;
+}
 /* .form-control {
   margin: 0.5rem 0;
 } */

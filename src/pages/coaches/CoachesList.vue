@@ -1,21 +1,18 @@
 <template>
   <div>
-    <base-card class="coach-list">
-      <h1>coach list</h1>
-      <router-link class="reg" to="/login" v-if="!isLoggedin">Log in </router-link>
-      <router-link class="reg" to="/register" v-if="!isCoach && !isLoading && isLoggedin"
+    <div>
+      <router-link
+        class="reg"
+        to="/register"
+        v-if="!isCoach && !isLoading && isLoggedin"
         >Register As Coach</router-link
       >
-    </base-card>
+      <h1 class="head">Coaches List</h1>
+    </div>
+    <section class="linear"></section>
 
     <base-card>
-      <div>
-        <button @click="loadCoaches()">Refresh</button>
-      </div>
-
-      <div v-if="isLoading">
-        <base-spinner></base-spinner>
-      </div>
+      <base-spinner v-if="isLoading"></base-spinner>
       <ul v-else-if="hasCoaches">
         <!-- میتوانیم اطلاعت دریافتی از استور را از طریق پراپس به کامپوننتی که قرار است آنها را نمایش دهد بفرستیم -->
         <coach-items
@@ -43,9 +40,6 @@
 import CoachItems from '../../components/coaches/CoachItems.vue';
 import { mapGetters } from 'vuex';
 export default {
-  created() {
-    this.loadCoaches();
-  },
   components: { CoachItems },
   data() {
     return {
@@ -53,8 +47,11 @@ export default {
       error: null
     };
   },
+  created() {
+    this.loadCoaches();
+  },
   computed: {
-    ...mapGetters(['coaches', 'hasCoaches', 'isCoach','isLoggedin'])
+    ...mapGetters(['coaches', 'hasCoaches', 'isCoach', 'isLoggedin'])
     // filteredCoaches(){
     //   return this.$store.getters['coaches/coaches']
     // },
@@ -74,9 +71,14 @@ export default {
 </script>
 <style scoped>
 div {
-  padding: 20px;
-  /* background-color: cornflowerblue; */
-  margin: 40px 10px;
+  padding: 0px;
+  margin: 15px 0px;
+}
+.linear {
+  width: 100%;
+  height: 5px;
+  margin: auto;
+  background: linear-gradient(to right, #442477, black, #ddb1ee);
 }
 ul {
   list-style: none;
@@ -92,9 +94,12 @@ a {
   border: 1px solid #000000;
 }
 .reg {
+  position: absolute;
+  top: 135px;
+  right: 5px;
   height: max-content;
-  padding: 7px;
-  margin: auto 0;
+  padding: 8px;
+  margin: 0;
   color: white;
   background-color: #3d008d;
   border-radius: 30px;
@@ -115,5 +120,13 @@ button {
   color: rgb(0, 0, 0);
   font-family: inherit;
   cursor: pointer;
+}
+h1 {
+  /* background: red; */
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  text-shadow: 5px 5px 4px rgb(187, 187, 187);
 }
 </style>
