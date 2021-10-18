@@ -112,9 +112,10 @@ label {
 }
 input {
   width: 90%;
-  height: 22px;
+  height: 35px;
   margin: 5px 10px;
   display: block;
+  border-radius:5px
 }
 
 button {

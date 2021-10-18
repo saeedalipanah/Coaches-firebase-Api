@@ -113,9 +113,9 @@ label {
 }
 input {
   width: 90%;
-  height: 22px;
+  height: 35px;
   margin: 5px 10px;
-
+  border-radius:5px;
   display: block;
 }
 

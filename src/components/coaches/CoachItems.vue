@@ -2,7 +2,7 @@
   <li>
     <!-- میتوان اطلاعات دریافتی از طریق پراپس را نمایش داد -->
     <h3>Coach Name : {{ firstName }} {{ lastName }}</h3>
-    <h3>Hourly Rate : {{ hourlyRate }} hours</h3>
+    <h3>Hourly Rate : {{ hourlyRate }} تومان</h3>
     <section>
       <h3 class="area">Areas:</h3>
       <h4>
