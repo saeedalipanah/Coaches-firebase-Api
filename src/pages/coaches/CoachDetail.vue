@@ -13,13 +13,13 @@
     </section >
       <p >description: {{ selectedCoach.description }}</p>
     </section>
-    <base-card>
+    <div>
     <section>
       <h1 class="interested">Interested? Reach Out Now</h1>
       <router-link :to="/coaches/+ id + /contact/">Contact With Coach</router-link>
     <router-view></router-view>
     </section>
-    </base-card>
+    </div>
   </base-card>
 </div>
 </template>

@@ -11,7 +11,7 @@
     </div>
     <section class="linear"></section>
 
-    <base-card>
+    <div>
       <base-spinner v-if="isLoading"></base-spinner>
       <ul v-else-if="hasCoaches">
         <!-- میتوانیم اطلاعت دریافتی از استور را از طریق پراپس به کامپوننتی که قرار است آنها را نمایش دهد بفرستیم -->
@@ -32,7 +32,7 @@
       <h3 v-else style="text-align: center;">
         No Coaches Yet...
       </h3>
-    </base-card>
+    </div>
   </div>
 </template>
 

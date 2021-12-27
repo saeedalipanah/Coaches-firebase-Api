@@ -38,11 +38,12 @@ export default {
 </script>
 <style scoped>
 li {
-  margin: 10px;
+  margin: 10px 10px 10px 20px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 20px;
   box-shadow: 4px 6px 20px #3d008d;
+  width: 80%;
 }
 div {
   margin: 15px;
